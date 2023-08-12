@@ -1,31 +1,30 @@
-const text = document.getElementById("text_input");
-const btn = document.getElementById("btn_txt");
+function solveEquation() {
+  const equationInput = document.getElementById("equation");
+  const resultElement = document.getElementById("result");
 
+  const equation = equationInput.value;
+  const parts = equation.split("x^2");
+  const a = parseFloat(parts[0].trim());
 
-// x^2+x+6 - Sample input
+  const remainingParts = parts[1].split("x");
+  const b = parseFloat(
+    remainingParts[0].replace("+", "").replace("-", "-").trim()
+  );
+  const c = parseFloat(
+    remainingParts[1].replace("+", "").replace("-", "-").trim()
+  );
 
-// logic for evaluating the expression
-// 1.  Storing the input at proper places
-const input = text.value.toLowerCase();
-let degree = 0;
-for (let i = 0; i < input.length(); i++) {
-  let c = input.charAt(i);
-  if (c == "x") degree++; //Find the degree of the eqn
-}
-let numbers = new Array[degree]();
-for (let i = 0; i < input.length(); i++) {
-  let c = input.charAt(i);
-  let k = 0;
-  if (c == "x") {
-    k = i;
-    while (input.charAt(k) != "+" && input.charAt(k) != "-" && k != -1) {
-      let num = parseInt(input.charAt(k) + num);
-      numbers[i] = num;
-      k--;
-    }
+  const discriminant = b * b - 4 * a * c;
+
+  if (discriminant < 0) {
+    resultElement.textContent = "The equation has no real roots.";
+  } else if (discriminant === 0) {
+    const root = -b / (2 * a);
+    resultElement.textContent = "The equation has one real root: " + root;
+  } else {
+    const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+    const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+    resultElement.textContent =
+      "The equation has two real roots: " + root1 + " and " + root2;
   }
 }
-
-btn.addEventListener("click", () => {
-  console.log(numbers);
-});

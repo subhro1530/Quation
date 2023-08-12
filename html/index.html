@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quation</title>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" placeholder="Enter equation here..." class="text_input" id="text_input">
-    <button id="btn_txt">Submit</button>
+    <nav>
+        <img src="logo/Quation4K.png" alt="">
+        <div class="links">
+            <a href="index.html" style="color: red;">Quadratic Solver</a>
+            <a href="poly.html">Polynomial Solver</a>
+        </div>
+    </nav>
+  <div class="container">
+    <label for="equation">Enter a quadratic equation:</label>
+    <input type="text" id="equation" placeholder="Example: 2x^2 + 3x - 5">
+    <button onclick="solveEquation()">Calculate Roots</button>
+    <p id="result"></p>
+  </div>
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
