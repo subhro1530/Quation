@@ -2,35 +2,60 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #1E1E1E;
+    color: #FFFFFF;
 }
 
 .chat-container {
     max-width: 600px;
     margin: auto;
     padding: 20px;
+    position: relative;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 .chat-box {
-    border: 1px solid #ccc;
+    border: 1px solid #404040;
+    background-color: #303030;
     padding: 10px;
-    max-height: 300px;
+    max-height: calc(100% - 50px);
     overflow-y: scroll;
 }
 
 .input-container {
     display: flex;
-    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    /* background-color: #404040; */
 }
 
 #user-input {
     flex: 1;
-    padding: 5px;
+    height: 30px;
+    padding: 8px; /* Adjust padding for the input box */
+    background-color: #606060;   
+    border: none;
+    color: #FFFFFF;
+    border-radius: 4px; /* Add border radius for a rounded appearance */
+    outline: none; /* Remove outline on focus */
+    font-size: 15px;
 }
 
 #send-button {
     background-color: #007BFF;
-    color: white;
+    color: #FFFFFF;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 12px; /* Adjust padding for the button */
     cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+    transition: background-color 0.3s; /* Add a transition effect on hover */
+}
+
+#send-button:hover {
+    background-color: #0055CC; /* Darker shade on hover */
 }
